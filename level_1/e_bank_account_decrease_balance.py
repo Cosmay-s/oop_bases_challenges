@@ -10,8 +10,27 @@
 
 
 class BankAccount:
-    pass  # код писать тут
+    def __init__(self, owner_full_name: str, balance: float) -> None:
+        self.owner_full_name = owner_full_name
+        self.balance = balance
+
+    def increase_balance(self, income: float) -> None:
+        self.balance += income
+
+    def reduce_balance(self, rate: float) -> None:
+        self.balance -= rate
+
+    def __str__(self) -> str:
+        return f'Клиент: {self.owner_full_name}\nБаланс: {self.balance} руб.'
+
+client_1 = BankAccount('Ivanov Ivan', 500.0)
+client_2 = BankAccount('Petrov Petr', 250.0)
 
 
 if __name__ == '__main__':
-    pass  # код писать тут
+    print(client_1)
+    print(client_2)
+    client_1.increase_balance(233.3)
+    client_2.reduce_balance(124.5)
+    print(client_1)
+    print(client_2)
